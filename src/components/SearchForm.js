@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { withRouter } from "react-router-dom"
+import { withRouter } from "react-router-dom";
 
 class SearchForm extends Component {
   state = {
@@ -8,8 +8,8 @@ class SearchForm extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.onSearch(this.state.query);
-    this.props.history.push(`/search/${this.state.query}`)
-    this.setState({ query: ''})
+    this.props.history.push(`/search/${this.state.query}`);
+    this.setState({ query: "" });
   };
   handleChange = (e) => {
     this.setState({

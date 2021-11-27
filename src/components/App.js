@@ -61,17 +61,26 @@ class App extends Component {
             <Route
               exact
               path="/cats"
-              render={() => <PhotoContainer title="Cats" data={this.state.data.cats} />}
+              render={() => (
+                <PhotoContainer title="Cats" data={this.state.data.cats} />
+              )}
             />
             <Route
               exact
               path="/dogs"
-              render={() => <PhotoContainer title="Dogs" data={this.state.data.dogs} />}
+              render={() => (
+                <PhotoContainer title="Dogs" data={this.state.data.dogs} />
+              )}
             />
             <Route
               exact
               path="/computers"
-              render={() => <PhotoContainer title="Computers" data={this.state.data.computers} />}
+              render={() => (
+                <PhotoContainer
+                  title="Computers"
+                  data={this.state.data.computers}
+                />
+              )}
             />
             <Route
               exact
