@@ -61,23 +61,24 @@ class App extends Component {
             <Route
               exact
               path="/cats"
-              render={() => <PhotoContainer data={this.state.data.cats} />}
+              render={() => <PhotoContainer title="Cats" data={this.state.data.cats} />}
             />
             <Route
               exact
               path="/dogs"
-              render={() => <PhotoContainer data={this.state.data.dogs} />}
+              render={() => <PhotoContainer title="Dogs" data={this.state.data.dogs} />}
             />
             <Route
               exact
               path="/computers"
-              render={() => <PhotoContainer data={this.state.data.computers} />}
+              render={() => <PhotoContainer title="Computers" data={this.state.data.computers} />}
             />
             <Route
               exact
               path="/search/:tag"
               render={({ match }) => (
                 <PhotoContainer
+                  title={match.params.tag}
                   searchTag={match.params.tag}
                   data={this.state.data[match.params.tag]}
                   onSearch={this.onSearch}
