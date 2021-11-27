@@ -7,8 +7,8 @@ class PhotoContainer extends Component {
   //If data[tag] doesn't exists in App, searches for it and updates the state
   componentDidMount() {
     //makes sure the props exist before attempting to use them aswell
-    document.title = this.props.title;
     if (!this.props.data && this.props.onSearch) {
+      document.title = this.props.title;
       this.props.onSearch(this.props.searchTag);
     }
   }
