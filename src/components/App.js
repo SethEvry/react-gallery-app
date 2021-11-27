@@ -9,7 +9,7 @@ import React, { Component } from "react";
 import SearchForm from "./SearchForm";
 import Nav from "./Nav";
 import PhotoContainer from "./PhotoContainer";
-import PageNotFound from "./NotFound";
+import PageNotFound from "./PageNotFound";
 //=====================
 class App extends Component {
   state = {
@@ -19,6 +19,7 @@ class App extends Component {
   };
   navTags = ["cats", "dogs", "computers"];
 
+  //Generates a data set for each nav tag
   componentDidMount() {
     this.navTags.forEach((tag) => this.onSearch(tag));
   }
@@ -30,18 +31,18 @@ class App extends Component {
         `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${tag}&per_page=24&format=json&nojsoncallback=1`
       )
       .then((res) => {
-        const photos = res.data.photos.photo
-        if(photos.length >= 1){
-        this.setState((prevState) => ({
-          data: { ...prevState.data, [tag]: photos },
-          isLoading: false,
-        }));
-      } else {
-        this.setState((prevState) => ({
-          data: {...prevState.data, [tag]: []},
-          isLoading: false,
-        }))
-      }
+        const photos = res.data.photos.photo;
+        if (photos.length >= 1) {
+          this.setState((prevState) => ({
+            data: { ...prevState.data, [tag]: photos },
+            isLoading: false,
+          }));
+        } else {
+          this.setState((prevState) => ({
+            data: { ...prevState.data, [tag]: [] },
+            isLoading: false,
+          }));
+        }
       })
       .catch((err) => {
         console.log("Error fetching and parsing data!", err);
